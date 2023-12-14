@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { UploadDropzone } from "./util/uploadthing";
+import axios from "axios";
 
 const UploadImages = () => {
   const router = useRouter();
@@ -21,13 +22,11 @@ const UploadImages = () => {
       }}
       onClientUploadComplete={async res => {
         try {
-          const list = await fetch("/api/list/", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(res.map(image => image.url))
-          });
-          const { id } = await list.json();
-          router.push(id.toString());
+          const list = await axios.post(
+            "/api/list",
+            res.map(image => image.url)
+          );
+          router.push(list.data.id.toString());
         } catch (err) {
           console.error(err);
         }
