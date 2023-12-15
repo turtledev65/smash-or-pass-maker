@@ -18,7 +18,6 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
   };
 
   return (
-    <div className="relative h-full w-full">
       <AnimatePresence>
         {images.slice(0, currIndex).map(image => (
           <motion.img
@@ -36,7 +35,6 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
           />
         ))}
       </AnimatePresence>
-    </div>
   );
 };
 
