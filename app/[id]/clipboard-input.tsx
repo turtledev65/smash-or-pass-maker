@@ -1,4 +1,5 @@
 "use client";
+
 import { MdCopyAll as CopyIcon } from "react-icons/md";
 import { motion } from "framer-motion";
 import useCurrentUrl from "@/hooks/useCurrentUrl";
