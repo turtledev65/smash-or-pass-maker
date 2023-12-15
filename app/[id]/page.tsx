@@ -1,5 +1,6 @@
 import prisma from "@/prisma/client";
 import { notFound } from "next/navigation";
+import ImageCarousel from "./image-carousel";
 
 const SmashOrPassPage = async ({ params }: { params: { id: string } }) => {
   const list = await prisma.smashOrPassList.findUnique({
@@ -8,10 +9,8 @@ const SmashOrPassPage = async ({ params }: { params: { id: string } }) => {
   if (!list) notFound();
 
   return (
-    <div>
-      {list.images.map(image => (
-        <img src={image} />
-      ))}
+    <div className="h-full w-full">
+      <ImageCarousel images={list.images} />
     </div>
   );
 };
