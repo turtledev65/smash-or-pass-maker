@@ -3,9 +3,11 @@
 import useWindowDimensions from "@/hooks/useWindowDimensions";
 import { AnimatePresence, PanInfo, motion } from "framer-motion";
 import { useState, useTransition } from "react";
+import SwipeGuides from "./swipe-guides";
 
 const ImageCarousel = ({ images }: { images: string[] }) => {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
+
   const [_, startTransition] = useTransition();
   const [currIndex, setCurrIndex] = useState(images.length - 1);
   const [dragDirection, setDragDirection] = useState(0);
@@ -18,6 +20,8 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
   };
 
   return (
+    <>
+      <SwipeGuides />
       <AnimatePresence>
         {images.slice(0, currIndex).map(image => (
           <motion.img
@@ -35,6 +39,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
           />
         ))}
       </AnimatePresence>
+    </>
   );
 };
 
