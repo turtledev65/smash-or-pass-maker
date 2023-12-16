@@ -9,7 +9,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
 
   const [_, startTransition] = useTransition();
-  const [currIndex, setCurrIndex] = useState(images.length - 1);
+  const [currIndex, setCurrIndex] = useState(images.length);
   const [dragDirection, setDragDirection] = useState(0);
 
   const handleDragEnd = (_: unknown, info: PanInfo) => {
