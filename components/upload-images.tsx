@@ -10,7 +10,7 @@ const UploadImages = () => {
 
   return (
     <UploadDropzone
-      className="ut-upload-icon:scale-120 border-none ut-button:mt-8 ut-button:bg-red-500 ut-allowed-content:text-xl ut-allowed-content:text-gray-300 ut-label:text-2xl ut-label:text-gray-100"
+      className="ut-upload-icon:scale-120 border-none ut-button:mt-8 ut-button:bg-red-500 ut-allowed-content:text-xl ut-allowed-content:text-gray-300 ut-label:text-2xl ut-label:text-gray-200"
       endpoint="imageUploader"
       content={{
         label({ ready }) {
@@ -23,7 +23,7 @@ const UploadImages = () => {
         },
         uploadIcon() {
           return (
-            <BiImages className="mx-auto block h-32 w-32 align-middle text-white" />
+            <BiImages className="mx-auto block h-32 w-32 align-middle text-gray-200" />
           );
         }
       }}
